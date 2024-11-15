@@ -36,6 +36,6 @@ ID,PW なし
   - プロダクトは感覚的に使えるということが改めて大切だと感じました。
   - この仕組みを自由に使えるようになると、業務など効率化できることが多いように感じました。
 - 【参考にしたサイト】
-  https://qiita.com/LookUP/items/a934482a054444687439
-  https://qiita.com/miyaken3381/items/1bc7530a211a507a19dc　←画像を取得という項目があり、試してみましたが私は出来ませんでした。
+  - https://qiita.com/LookUP/items/a934482a054444687439
+  - https://qiita.com/miyaken3381/items/1bc7530a211a507a19dc　　←画像を取得という項目があり、試してみましたが私は出来ませんでした。
 
