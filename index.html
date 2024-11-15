@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="css/sample.css">
 </head>
 
- <header>
-        
-</header>
+ <header></header>
 <body>
 
     <main>
@@ -110,41 +108,26 @@
 
 
         //1.Save クリックイベント
-        $("#save").on("click", function () {
-        const key = $("#view").val();
-        const value_1 = $("#today").val();
-        const value_2 = $("#health").val();
-        const value_3 = $("#body-temp").val();
-        const value_4 = $("#pressure").val();
-        const value_5 = $("#condition").val();
-        const value_6 = $("#free").val();
+    $("#save").on("click", function () {
+    const key = $("#view").html();
+    const value_1 = $("#today").val();
+    const value_2 = $("#health").val();
+    const value_3 = $("#body-temp").val();
+    const value_4 = $("#pressure").val();
+    const value_5 = $("#condition").val();
+    const value_6 = $("#free").val();
 
-        localStorage.setItem(key, value_1, value_2, value_3, value_4, value_5, value_6);
-        const html = `
-        <li>
-            <p>${key}</p>
-            <p>${value_1}</p>
-            <p>${value_2}</p>
-            <p>${value_3}</p>
-            <p>${value_4}</p>
-            <p>${value_5}</p>
-            <p>${value_6}</p>
-        </li>
-        `;
-        $("#list").append(html);
-        });
+    const data = {
+        value_1: value_1,
+        value_2: value_2,
+        value_3: value_3,
+        value_4: value_4,
+        value_5: value_5,
+        value_6: value_6
+    };
+    localStorage.setItem(key, JSON.stringify(data));
 
-        //2.clear クリックイベント
-        $("#clear").on("click", function () {
-        localStorage.clear();
-        $("#list").empty();
-        });
-
-        //3.ページ読み込み：保存データ取得表示
-        for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const value = localStorage.getItem(key);
-        const html = `
+    const html = `
         <li>
             <p>${key}</p>
             <p>${value_1}</p>
@@ -155,7 +138,31 @@
             <p>${value_6}</p>
         </li>
     `;
-      $("#list").append(html);
+    $("#list").append(html);
+    });
+
+        //2.clear クリックイベント
+        $("#clear").on("click", function () {
+        localStorage.clear();
+        $("#list").empty();
+        });
+
+        //3.ページ読み込み：保存データ取得表示
+        for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const storedData = JSON.parse(localStorage.getItem(key));
+    const html = `
+        <li>
+            <p>${key}</p>
+            <p>${storedData.value_1}</p>
+            <p>${storedData.value_2}</p>
+            <p>${storedData.value_3}</p>
+            <p>${storedData.value_4}</p>
+            <p>${storedData.value_5}</p>
+            <p>${storedData.value_6}</p>
+        </li>
+    `;
+    $("#list").append(html);
     }
 
 
