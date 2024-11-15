@@ -149,3 +149,5 @@ fetch(url)
     document.getElementById("tempsMax").lastElementChild.textContent =
       temps.temps[1] + "℃";
   });
+
+
