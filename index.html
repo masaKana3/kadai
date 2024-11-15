@@ -110,36 +110,40 @@
         //1.Save クリックイベント
     $("#save").on("click", function () {
     const key = $("#view").html();
-    const value_1 = $("#today").val();
-    const value_2 = $("#health").val();
-    const value_3 = $("#body-temp").val();
-    const value_4 = $("#pressure").val();
-    const value_5 = $("#condition").val();
-    const value_6 = $("#free").val();
+    const value_1 = $("#today td").text();
+    const value_2 = $("#health select").val();
+    const value_3 = $("#body-temp input").val();
+    const value_4 = $("#pressure input[name='upper']").val() + '/' + $("#pressure input[name='lower']").val();
+    const value_5 = $("input[name='condition']:checked").val();
+    const value_6 = $("#free textarea").val();
 
     const data = {
-        value_1: value_1,
-        value_2: value_2,
-        value_3: value_3,
-        value_4: value_4,
-        value_5: value_5,
-        value_6: value_6
+        value_1: value_1 || "N/A",
+        value_2: value_2 || "N/A",
+        value_3: value_3 || "N/A",
+        value_4: value_4 || "N/A",
+        value_5: value_5 || "N/A",
+        value_6: value_6 || "N/A"
     };
     localStorage.setItem(key, JSON.stringify(data));
 
     const html = `
         <li>
             <p>${key}</p>
-            <p>${value_1}</p>
-            <p>${value_2}</p>
-            <p>${value_3}</p>
-            <p>${value_4}</p>
-            <p>${value_5}</p>
-            <p>${value_6}</p>
+            <p>${data.value_1}</p>
+            <p>${data.value_2}</p>
+            <p>${data.value_3}</p>
+            <p>${data.value_4}</p>
+            <p>${data.value_5}</p>
+            <p>${data.value_6}</p>
         </li>
     `;
     $("#list").append(html);
     });
+    console.log(data.value_2);
+    console.log(data.value_3);
+    
+
 
         //2.clear クリックイベント
         $("#clear").on("click", function () {
@@ -154,16 +158,16 @@
     const html = `
         <li>
             <p>${key}</p>
-            <p>${storedData.value_1}</p>
-            <p>${storedData.value_2}</p>
-            <p>${storedData.value_3}</p>
-            <p>${storedData.value_4}</p>
-            <p>${storedData.value_5}</p>
-            <p>${storedData.value_6}</p>
+            <p>${storedData.value_1 || "N/A"}</p>
+            <p>${storedData.value_2 || "N/A"}</p>
+            <p>${storedData.value_3 || "N/A"}</p>
+            <p>${storedData.value_4 || "N/A"}</p>
+            <p>${storedData.value_5 || "N/A"}</p>
+            <p>${storedData.value_6 || "N/A"}</p>
         </li>
     `;
     $("#list").append(html);
-    }
+}
 
 
 
