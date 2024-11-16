@@ -146,8 +146,6 @@ fetch(url)
 
     document.getElementById("tempsMin").lastElementChild.textContent =
       temps.temps[0] + "℃";
-    document.getElementById("tempsMax").lastElementChild.textContent =
-      temps.temps[1] + "℃";
   });
 
  let week = ["日", "月", "火", "水", "木", "金", "土"];
@@ -211,9 +209,10 @@ fetch(url)
         </li>
     `;
    $("#list").append(html);
+
+   // 必要であれば、コンソールで確認
+   console.log(data);
  });
- console.log(data.value_2);
- console.log(data.value_3);
 
  //2.clear クリックイベント
   $(document).ready(function () {
