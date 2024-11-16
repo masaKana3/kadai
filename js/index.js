@@ -216,16 +216,20 @@ fetch(url)
  console.log(data.value_3);
 
  //2.clear クリックイベント
- $; // Clearボタンのクリックイベント
- $("#clear").on("click", function () {
-   if (confirm("すべてのデータを削除してもよろしいですか？")) {
-     // ローカルストレージをクリア
-     localStorage.clear();
-     // 表示されているリストをクリア
-     $("#list").empty();
-     alert("データを削除しました。");
-   }
- });
+  $(document).ready(function () {
+    // Clearボタンのクリックイベント
+    $("#clear").on("click", function () {
+      if (confirm("すべてのデータを削除してもよろしいですか？")) {
+        // ローカルストレージをクリア
+        localStorage.clear();
+        // 表示されているリストをクリア
+        $("#list").empty();
+        alert("データを削除しました。");
+      }
+    });
+  });
+  console.log($("#clear").length); // ボタンが見つかると 1 が表示される
+
 
  //3.ページ読み込み：保存データ取得表示
  for (let i = 0; i < localStorage.length; i++) {
