@@ -144,6 +144,7 @@ fetch(url)
     let temps = weather[0].timeSeries[2].areas[0];
     console.log(temps);
 
+
     document.getElementById("tempsMin").lastElementChild.textContent =
       temps.temps[0] + "℃";
   });
@@ -153,7 +154,7 @@ $(document).ready(function () {
   const firstWord = weatherText.split(" ")[0]; // 全角スペースで分割し最初の単語を取得
   const container = $(".container");
 
-  console.log("天気の最初の単語:", firstWord); // デバッグ用
+  console.log("天気の最初の単語:", weatherText); // デバッグ用
 
   // 背景画像を天気に応じて設定
   if (firstWord.includes("晴れ")) {
@@ -165,8 +166,15 @@ $(document).ready(function () {
   } else if (firstWord.includes("雪")) {
     container.css("background-image", "url('./img/snowy.jpg')");
   } else {
-    container.css("background-image", white);
+    container.css("background-image", "white");
   }
+  // 背景画像が正しく適用されるように、リサイズを確認
+  container.css({
+    "background-size": "cover",
+    "background-position": "center",
+    "background-repeat": "no-repeat",
+    "background-color": "white",
+  });
 });
 
  let week = ["日", "月", "火", "水", "木", "金", "土"];

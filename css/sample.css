@@ -19,9 +19,13 @@ body {
   max-width: 400px;
   width: 100%;
   background-size: cover; /* 背景画像をスマホ・PC対応 */
-  background-position: center;
+  background-position: center; /* 中央揃え */
+  background-repeat: no-repeat; /* 繰り返しを防止 */
   color: #333;
   transition: background-image 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column; /* コンテナ内の要素を縦並びにする */
+  align-items: center; /* 横の中心寄せ */
 }
 
 /* ボタンエリア */
@@ -30,10 +34,11 @@ body {
   justify-content: center; /* 横の中心寄せ */
   gap: 10px; /* ボタン間のスペース */
   margin-top: 20px;
+  flex-direction: row; /* ボタンは横並び */
 }
 
 button {
-  background-color: #0066cc;
+  background-color: black;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -76,7 +81,7 @@ ul#list li {
 }
 
 ul#list li:hover {
-  background-color: #0066cc;
+  background-color: black;
   color: white;
   transform: scale(1.03);
 }
