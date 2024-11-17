@@ -225,7 +225,10 @@ fetch(url)
     $("#clear").on("click", function () {
       console.log("Clearボタンがクリックされました"); // イベント発火確認
       if (confirm("すべてのデータを削除してもよろしいですか？")) {
-        // ローカルストレージをクリア
+        // ボタンフィードバック
+        $(this).text("Clearing...").prop("disabled", true);
+
+        // ローカルストレージとリストのクリア
         localStorage.clear();
         console.log("ローカルストレージをクリアしました");
 
@@ -233,7 +236,18 @@ fetch(url)
         $("#list").empty();
         console.log("リストをクリアしました");
 
+        // health-memo内のデータをクリア
+        $(".health-memo select").val(""); // セレクトボックスを初期化
+        $(".health-memo input[type='text']").val(""); // テキスト入力を初期化
+        $(".health-memo input[type='radio']").prop("checked", false); // ラジオボタンを未選択に
+        $(".health-memo textarea").val(""); // テキストエリアを初期化
+
         alert("データを削除しました。");
+
+        // ボタン状態を戻す
+        setTimeout(() => {
+          $("#clear").text("Clear").prop("disabled", false);
+        }, 500);
       }
     });
   });
