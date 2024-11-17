@@ -1,61 +1,93 @@
-body{
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-
-    height: 100vh;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* 横の中心寄せ */
+  align-items: center; /* 縦の中心寄せ */
+  height: 100vh;
 }
+
+/* 中央配置のコンテナ */
 .container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    
-    max-width: 400px;
-    width: 100%;
-    
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  background-size: cover; /* 背景画像をスマホ・PC対応 */
+  background-position: center;
+  color: #333;
+  transition: background-image 0.5s ease-in-out;
 }
 
-header{
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    text-align: center;
+/* ボタンエリア */
+.button-area {
+  display: flex;
+  justify-content: center; /* 横の中心寄せ */
+  gap: 10px; /* ボタン間のスペース */
+  margin-top: 20px;
 }
-/* main{
-    border-bottom:1px solid #ccc;
-    position:relative;
-} */
-footer{
-    background-color: #fff;
-    border-bottom:1px solid #ccc;
-    text-align: center;
+
+button {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-p{
-    text-align: center;
-    border-bottom:1px solid #fff;
+
+button:hover {
+  background-color: #005bb5;
+  transform: scale(1.05); /* ホバー時に少し拡大 */
 }
-ul{
-    padding: 0;
-    border-top: 1px solid #000000;
-    display:table;  /* 定義 */
-    table-layout: fixed;
-    width:100%;
+
+button:active {
+  background-color: #004c99;
+  transform: scale(0.95); /* 押下時に縮小 */
 }
-li{
-    list-style-type:none;
-    border: 1px solid #666;
-    background-color: #FFF;
-    display:table-cell;  /* 定義 */
-    cursor: pointer;
+
+/* リストエリア */
+ul#list {
+  padding: 0;
+  margin-top: 20px;
+  list-style: none;
+  border-top: 1px solid #ccc;
+  text-align: left; /* 左揃え */
+  max-width: 400px; /* コンテナの幅に合わせる */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; /* 横の中心寄せ */
 }
-li:hover{
-    background: #0066CC;
-    color:#fff;
+
+ul#list li {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fafafa;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-textarea{
+
+ul#list li:hover {
+  background-color: #0066cc;
+  color: white;
+  transform: scale(1.03);
+}
+
+/* テキストエリア */
+textarea {
   margin: 3%;
   width: 95%;
-  height: 200px;
-  font-size:80%;
-  /* box-shadow: 3px 3px 3px 3px #555; */
+  height: 150px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
 }

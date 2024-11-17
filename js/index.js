@@ -148,6 +148,27 @@ fetch(url)
       temps.temps[0] + "℃";
   });
 
+$(document).ready(function () {
+  const weatherText = $("#today td").text(); // 天気情報を取得
+  const firstWord = weatherText.split(" ")[0]; // 全角スペースで分割し最初の単語を取得
+  const container = $(".container");
+
+  console.log("天気の最初の単語:", firstWord); // デバッグ用
+
+  // 背景画像を天気に応じて設定
+  if (firstWord.includes("晴れ")) {
+    container.css("background-image", "url('./img/sunny.jpg')");
+  } else if (firstWord.includes("雨")) {
+    container.css("background-image", "url('./img/rainy.jpg')");
+  } else if (firstWord.includes("曇り")) {
+    container.css("background-image", "url('./img/cloudy.jpg')");
+  } else if (firstWord.includes("雪")) {
+    container.css("background-image", "url('./img/snowy.jpg')");
+  } else {
+    container.css("background-image", white);
+  }
+});
+
  let week = ["日", "月", "火", "水", "木", "金", "土"];
  let now = new Date();
  let year = now.getFullYear();
